@@ -1,0 +1,22 @@
+<!-- Blog entry -->
+<article class="w3-card-4 w3-margin w3-white {{post_class}} {{unless post.image 'no-image'}}">
+  {{#if post.image}}
+    <img src="{{post.image}}" alt="Nature" style="width:100%">
+  {{/if}}
+  <div class="w3-container">
+    <h3><b>{{post.title}}</b></h3>
+    {{#if model.post.date}}
+    <h5><time class="post-full-meta-date" datetime="{{moment-format model.post.date "YYYY-MM-DD"}}">{{moment-format model.post.date "D MMMM YYYY"}}</time></h5>
+    {{/if}}
+  </div>
+
+  <div class="w3-container">
+    <p>{{excerpt post.html words="33"}}...</p>
+    <div class="w3-row">
+      <div class="w3-col m8 s12">
+        <p>{{#link-to 'post' post.id class="post-card-content-link"}}
+<button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button>{{/link-to}}</p>
+      </div>
+    </div>
+  </div>
+</article>

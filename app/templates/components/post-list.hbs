@@ -1,0 +1,17 @@
+<ul class="w3-ul w3-hoverable w3-white">
+  {{#each (sort-by 'date:desc' posts) as |post|}}
+
+    <li class="w3-padding-16">
+      {{#link-to 'post' post.id class="post-card-content-link"}}
+        {{#if post.image}}
+          <img src="{{post.image}}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        {{/if}}
+        <span class="w3-large">{{post.title}}</span><br>
+        {{#if post.date}}
+          <span><time class="post-full-meta-date" datetime="{{moment-format post.date "YYYY-MM-DD"}}">{{moment-format post.date "D MMMM YYYY"}}</time></span>
+        {{/if}}
+      {{/link-to}}
+    </li>
+
+  {{/each}}
+</ul>

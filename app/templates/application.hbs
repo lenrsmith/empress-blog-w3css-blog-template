@@ -1,0 +1,91 @@
+{{head-layout}}
+
+{{!-- w3-content defines a container for fixed size centered content,
+and is wrapped around the whole page content, except for the footer in this example --}}
+<div class="w3-content" style="max-width:1400px">
+    {{!-- The big featured header, it uses blog cover image as a BG if available --}}
+    <header class="w3-container w3-center w3-padding-32">
+        <h1><b>{{blog.title}}</b></h1>
+        <p>Welcome to the blog of <span class="w3-tag">unknown</span></p>
+    </header>
+
+    <!-- Grid -->
+    <div class="w3-row">
+
+    {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+    {{outlet}}
+
+    <!-- Introduction menu -->
+    <div class="w3-col l4">
+      <!-- Posts -->
+      <div class="w3-card w3-margin">
+        <div class="w3-container w3-padding">
+          <h4>Recent Posts</h4>
+        </div>
+          {{post-list posts=model showOnly=5}}
+      </div>
+      <hr>
+
+      <!-- Labels / tags -->
+      <div class="w3-card w3-margin">
+        <div class="w3-container w3-padding">
+          <h4>Tags</h4>
+        </div>
+        <div class="w3-container w3-white">
+        <p>
+          {{tag-list model=model}}
+        </p>
+        </div>
+      </div>
+
+    <!-- END Introduction Menu -->
+    </div>
+
+    <!-- END GRID -->
+    </div>
+
+<!-- END w3-content -->
+</div>
+
+{{!-- The footer at the very bottom of the screen --}}
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+    <section class="copyright"><a href="{{blog.url}}">{{blog.title}}</a> &copy; {{moment-format now 'YYYY'}}</section>
+    {{#link-to 'index'}}Latest Posts{{/link-to}}
+    <button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
+    <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button>
+    <nav class="site-footer-nav">
+        {{#link-to 'index'}}Latest Posts{{/link-to}}
+        {{#if blog.facebook}}<a href="https://www.facebook.com/{{blog.facebook}}" target="_blank" rel="noopener">Facebook</a>{{/if}}
+        {{#if blog.twitter}}<a href="https://twitter.com/{{blog.twitter}}" target="_blank" rel="noopener">Twitter</a>{{/if}}
+        <a href="https://github.com/empress/empress-blog-casper-template" target="_blank" rel="noopener">empress-blog Casper Template</a>
+    </nav>
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+{{!-- The big email subscribe modal content --}}
+{{#if labs.subscribers}}
+<div id="subscribe" class="subscribe-overlay">
+    <a class="subscribe-overlay-close" href="#"></a>
+    <div class="subscribe-overlay-content">
+        {{#if blog.logo}}
+            <img class="subscribe-overlay-logo" src="{{blog.logo}}" alt="{{blog.title}}" />
+        {{/if}}
+        <h1 class="subscribe-overlay-title">Subscribe to {{blog.title}}</h1>
+        <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
+        {{subscribe_form placeholder="youremail@example.com"}}
+    </div>
+</div>
+{{/if}}
+
+{{!-- <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script> --}}
+
+{{#if pagination.pages}}
+<script>
+    var maxPages = parseInt('{{pagination.pages}}');
+</script>
+{{!-- <script src="{{asset "js/infinitescroll.js"}}"></script> --}}
+{{/if}}
+
+{{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+{{ghost_foot}}

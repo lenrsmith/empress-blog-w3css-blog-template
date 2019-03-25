@@ -1,0 +1,13 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- The main content area --}}
+<main id="site-main" class="w3-col l8 s12" role="main">
+    {{#each (sort-by 'date:desc' model) as |post|}}
+
+        {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+        {{post-card post=post}}
+
+    {{/each}}
+</main>
