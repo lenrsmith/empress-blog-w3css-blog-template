@@ -32,3 +32,7 @@ production stylesheet in assets/built/screen.css
 .post-card-content-link {
   text-decoration: none;
 }
+
+.w3-container img {
+  width: 100%;
+}

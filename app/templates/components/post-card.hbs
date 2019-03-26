@@ -5,8 +5,8 @@
   {{/if}}
   <div class="w3-container">
     <h3><b>{{post.title}}</b></h3>
-    {{#if model.post.date}}
-    <h5><time class="post-full-meta-date" datetime="{{moment-format model.post.date "YYYY-MM-DD"}}">{{moment-format model.post.date "D MMMM YYYY"}}</time></h5>
+    {{#if post.date}}
+    <h5><time class="post-full-meta-date" datetime="{{moment-format post.date "YYYY-MM-DD"}}">{{moment-format post.date "D MMMM YYYY"}}</time></h5>
     {{/if}}
   </div>
 

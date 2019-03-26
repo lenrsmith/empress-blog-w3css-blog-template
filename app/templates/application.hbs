@@ -51,9 +51,6 @@ and is wrapped around the whole page content, except for the footer in this exam
 <!-- Footer -->
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
     <section class="copyright"><a href="{{blog.url}}">{{blog.title}}</a> &copy; {{moment-format now 'YYYY'}}</section>
-    {{#link-to 'index'}}Latest Posts{{/link-to}}
-    <button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
-    <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button>
     <nav class="site-footer-nav">
         {{#link-to 'index'}}Latest Posts{{/link-to}}
         {{#if blog.facebook}}<a href="https://www.facebook.com/{{blog.facebook}}" target="_blank" rel="noopener">Facebook</a>{{/if}}
