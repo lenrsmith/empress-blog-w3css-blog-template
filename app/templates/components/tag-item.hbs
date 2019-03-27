@@ -1,1 +1,1 @@
-<span class="w3-tag {{tagClass}} w3-margin-bottom">{{capitalize tag.name}}</span>
+{{#link-to 'tag' (query-params tag = tag.name)}}<span class="w3-tag {{tagClass}} w3-margin-bottom">{{capitalize tag.name}}</span>{{/link-to}}
