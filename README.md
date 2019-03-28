@@ -1,4 +1,4 @@
-# ember-ghost-w3css-blog-template
+# empress-blog-w3css-blog-template
 
 This is a template designed to work with [empress-blog](https://github.com/empress/empress-blog)
 and is an implementation of the free [W3CSS Blog Template](https://www.w3schools.com/w3css/tryw3css_templates_blog.htm).

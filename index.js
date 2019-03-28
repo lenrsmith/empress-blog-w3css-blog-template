@@ -7,7 +7,7 @@ const customProperties = require('postcss-custom-properties');
 const postcssImport = require('postcss-import');
 
 module.exports = {
-  name: 'ember-ghost-w3css-blog-template',
+  name: 'empress-blog-w3css-blog-template',
 
   options: {
     postcssOptions: {
