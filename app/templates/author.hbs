@@ -2,62 +2,63 @@
 {{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
 
 {{!-- Everything inside the #author tags pulls data from the author --}}
-<header class="site-header outer {{unless model.coverImage 'no-cover'}}" style="{{if model.coverImage coverImageStyle}}">
-    <div class="inner">
-        {{site-nav}}
-        <div class="site-header-content">
-            {{#if model.image}}
-                <img class="author-profile-image" src="{{model.image}}" alt="{{model.name}}" />
-            {{/if}}
-            <h1 class="site-title">{{model.name}}</h1>
-            {{#if model.content}}
-                <h2 class="author-bio">{{markdown-to-html model.content}}</h2>
-            {{/if}}
-            <div class="author-meta">
-                {{#if model.location}}
-                    <div class="author-location">{{model.location}} <span class="bull">&bull;</span></div>
+<header class="site-header outer w3-container {{unless model.coverImage 'no-cover'}}" style="{{if model.coverImage coverImageStyle}}">
+    <div class="w3-row">
+      <div class="w3-col l8 s12">
+        <div class="w3-card-4 w3-margin-right w3-white">
+          <div class="w3-row">
+            <div class="w3-col l2 s3">
+                {{#if model.image}}
+                    <img class="author-profile-image" src="{{model.image}}" alt="{{model.name}}" />
                 {{/if}}
-                <div class="author-stats">
-                  {{#if model.posts}}
-                    {{model.posts.length}} posts
-                  {{else}}
-                    No posts
-                  {{/if}}
-                  <span class="bull">&bull;</span>
-                </div>
-                {{#if model.website}}
-                    <a class="social-link social-link-wb" href="{{model.website}}" target="_blank" rel="noopener">{{svg-icons/website}}</a>
-                {{/if}}
-                {{#if model.twitter}}
-                    <a class="social-link social-link-tw" href="https://twitter.com/{{model.twitter}}" target="_blank" rel="noopener">{{svg-icons/twitter}}</a>
-                {{/if}}
-                {{#if model.facebook}}
-                    <a class="social-link social-link-fb" href="{{model.facebook}}" target="_blank" rel="noopener">{{svg-icons/facebook}}</a>
-                {{/if}}
-                {{!-- <a class="social-link social-link-rss" href="http://cloud.feedly.com/#subscription/feed/{{model.url}}/rss/" target="_blank" rel="noopener">{{svg-icons/rss}}</a> --}}
-            </div>
-
-            {{#if model.coverMeta.attributionLink}}
-              <div style="width:100%">
-                {{image-attribution meta=model.coverMeta}}
               </div>
-            {{/if}}
-        </div>
-    </div>
+              <div class="w3-col l8 s6 w3-padding">
+                <h3 class="autor-title">{{model.name}}</h3>
+                {{#if model.content}}
+                    <p class="author-bio">{{markdown-to-html model.content}}</p>
+                {{/if}}
+            </div><!-- w3-col -->
+          </div><!-- w3-row -->
+        </div><!-- w3-card -->
+      </div><!-- w3-col -->
+      <div class="w3-col l4 s12">
+        <div class="w3-card-4 w3-margin-left w3-white">
+          <div class="w3-row w3-padding">
+                <h3>Author Meta Data</h3>
+                  {{#if model.location}}
+                      <div class="author-location">{{model.location}}</div>
+                  {{/if}}
+          </div>
+          <div class="w3-row author-stats w3-padding">
+                {{#if model.posts}}
+                  {{model.posts.length}} posts
+                {{else}}
+                  No posts
+                {{/if}}
+          </div>
+          <div class="w3-row w3-padding">
+                  {{#if model.website}}
+                      <a class="social-link social-link-wb" href="{{model.website}}" target="_blank" rel="noopener">{{svg-icons/website}}</a>
+                  {{/if}}
+                  {{#if model.twitter}}
+                      <a class="social-link social-link-tw" href="https://twitter.com/{{model.twitter}}" target="_blank" rel="noopener">{{svg-icons/twitter}}</a>
+                  {{/if}}
+                  {{#if model.facebook}}
+                      <a class="social-link social-link-fb" href="{{model.facebook}}" target="_blank" rel="noopener">{{svg-icons/facebook}}</a>
+                  {{/if}}
+                  {{!-- <a class="social-link social-link-rss" href="http://cloud.feedly.com/#subscription/feed/{{model.url}}/rss/" target="_blank" rel="noopener">{{svg-icons/rss}}</a> --}}
+          </div> <!-- w3-row -->
+        </div> <!-- w3-card -->
+      </div><!-- w3-col -->
+    </div><!-- w3-row -->
 </header>
 
 {{!-- The main content area --}}
-<main id="site-main" class="site-main outer" role="main">
-    <div class="inner">
+<main id="site-main" class="w3-col l8 s12" role="main">
+  {{#each (sort-by 'date:desc' model.posts) as |post|}}
 
-        <div class="post-feed">
-            {{#each (sort-by 'date:desc' model.posts) as |post|}}
+      {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+      {{post-card post=post}}
 
-                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-                {{post-card post=post}}
-
-            {{/each}}
-        </div>
-
-    </div>
+  {{/each}}
 </main>

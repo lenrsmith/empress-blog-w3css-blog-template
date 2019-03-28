@@ -36,3 +36,7 @@ production stylesheet in assets/built/screen.css
 .w3-container img {
   width: 100%;
 }
+
+.social-link svg {
+  width: 10%;
+}

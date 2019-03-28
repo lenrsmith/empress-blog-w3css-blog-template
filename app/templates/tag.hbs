@@ -2,8 +2,9 @@
 {{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
 
 {{!-- The big featured header, it uses blog cover image as a BG if available --}}
-<header class="site-header outer {{if tag.feature_image 'no-cover'}}" style="{{if tag.feature_image coverImageStyle}}">
-  <div class="w3-container">
+<header class="site-header outer w3-container {{if tag.feature_image 'no-cover'}}" style="{{if tag.feature_image coverImageStyle}}">
+  <div class="w3-row">
+    <div class="w3-col l12 s12">
       <h1 class="site-title">Tag: {{titleize model.tag}}</h1>
       <h2 class="site-description">
           {{#if tag.description}}
@@ -12,6 +13,7 @@
               A collection of {{model.posts.length}} posts
           {{/if}}
       </h2>
+    </div>
   </div>
 </header>
 
