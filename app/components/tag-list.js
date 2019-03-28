@@ -31,7 +31,7 @@ export default Component.extend({
         });
 
         if(eTag === undefined) {
-          allTags.push({ name: tag, count: 1});
+          allTags.push({id: tag, name: tag, count: 1});
         } else {
           eTag.count++;
         }
