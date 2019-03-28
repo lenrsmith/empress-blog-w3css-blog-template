@@ -73,15 +73,3 @@ and is wrapped around the whole page content, except for the footer in this exam
     </div>
 </div>
 {{/if}}
-
-{{!-- <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script> --}}
-
-{{#if pagination.pages}}
-<script>
-    var maxPages = parseInt('{{pagination.pages}}');
-</script>
-{{!-- <script src="{{asset "js/infinitescroll.js"}}"></script> --}}
-{{/if}}
-
-{{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
-{{ghost_foot}}
