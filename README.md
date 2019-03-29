@@ -13,7 +13,7 @@ npm init ember-app super-blog
 
 cd super-blog
 
-npx ember install empress-blog empress-blog-casper-template
+npx ember install empress-blog empress-blog-w3css-blog-template
 ```
 
 It will ask you if you want to update the `index.html` file and you should say yes 👍
