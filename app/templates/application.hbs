@@ -54,9 +54,8 @@ and is wrapped around the whole page content, except for the footer in this exam
         {{#link-to 'index'}}Latest Posts{{/link-to}}
         {{#if blog.facebook}}<a href="https://www.facebook.com/{{blog.facebook}}" target="_blank" rel="noopener">Facebook</a>{{/if}}
         {{#if blog.twitter}}<a href="https://twitter.com/{{blog.twitter}}" target="_blank" rel="noopener">Twitter</a>{{/if}}
-        <a href="https://github.com/empress/empress-blog-casper-template" target="_blank" rel="noopener">empress-blog Casper Template</a>
     </nav>
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a> and <a href="https://github.com/lenrsmith/empress-blog-w3css-blog-template" target="_blank" rel="noopener">empress-blog w3css-blog Template</a></p>
 </footer>
 
 {{!-- The big email subscribe modal content --}}
@@ -73,15 +72,3 @@ and is wrapped around the whole page content, except for the footer in this exam
     </div>
 </div>
 {{/if}}
-
-{{!-- <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script> --}}
-
-{{#if pagination.pages}}
-<script>
-    var maxPages = parseInt('{{pagination.pages}}');
-</script>
-{{!-- <script src="{{asset "js/infinitescroll.js"}}"></script> --}}
-{{/if}}
-
-{{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
-{{ghost_foot}}
